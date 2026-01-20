@@ -247,50 +247,50 @@
  * e.g. is shown below.
  */
 
-class QuickSort {
-public static int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = low - 1;
+// class QuickSort {
+// public static int partition(int arr[], int low, int high) {
+//     int pivot = arr[high];
+//     int i = low - 1;
 
-    for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
-            i++;
+//     for (int j = low; j < high; j++) {
+//         if (arr[j] < pivot) {
+//             i++;
 
-            // Swap
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-    }
-    i++;
-    int temp = arr[i];
-    arr[i] = pivot;
-    arr[high] = temp;
-    return i; // Pivot index
-}
+//             // Swap
+//             int temp = arr[i];
+//             arr[i] = arr[j];
+//             arr[j] = temp;
+//         }
+//     }
+//     i++;
+//     int temp = arr[i];
+//     arr[i] = pivot;
+//     arr[high] = temp;
+//     return i; // Pivot index
+// }
 
-public static void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-        int pidx = partition(arr, low, high);
+// public static void quickSort(int arr[], int low, int high) {
+//     if (low < high) {
+//         int pidx = partition(arr, low, high);
 
-        quickSort(arr, low, pidx - 1);
-        quickSort(arr, pidx + 1, high);
-    }
-}
+//         quickSort(arr, low, pidx - 1);
+//         quickSort(arr, pidx + 1, high);
+//     }
+// }
 
-public static void main(String[] args) {
-    int arr[] = { 6, 3, 9, 5, 2, 8 };
-    int n = arr.length;
+// public static void main(String[] args) {
+//     int arr[] = { 6, 3, 9, 5, 2, 8 };
+//     int n = arr.length;
 
-    quickSort(arr, 0, n - 1);
+//     quickSort(arr, 0, n - 1);
 
-    // Print
-    for (int i = 0; i < n; i++) {
-        System.out.print(arr[i] + " ");
-        }
-    System.out.println();
-}
-}
+//     // Print
+//     for (int i = 0; i < n; i++) {
+//         System.out.print(arr[i] + " ");
+//         }
+//     System.out.println();
+// }
+// }
 
 /*
  * But why do we use Quick sort then instead of Merge sort???
@@ -300,3 +300,132 @@ public static void main(String[] args) {
  * better to use Quick sort.
  */
 /*---------------------------------------------------------------- */
+
+/*Buket sort:- This is a sorting algorithm that works by distributing the elements of an
+array into a number of buckets. Each bucket is then sorted individually, either
+using a different sorting algorithm or by recursively applying the bucket sort
+algorithm. Finally, the sorted buckets are combined to produce the final sorted
+array.
+ */
+
+// // BucketSort
+// public class Sorting {
+
+//     static void bucketSort(int a[], int n) {
+
+//         // 1. Find maximum element
+//         int max = a[0];
+//         for (int i = 1; i < n; i++) {
+//             if (a[i] > max) {
+//                 max = a[i];
+//             }
+//         }
+
+//         // 2. Create bucket array
+//         int bucket[] = new int[max + 1];
+
+//         // 3. Initialize buckets with 0
+//         for (int i = 0; i <= max; i++) {
+//             bucket[i] = 0;
+//         }
+
+//         // 4. Store frequency of each element
+//         for (int i = 0; i < n; i++) {
+//             bucket[a[i]]++;
+//         }
+
+//         // 5. Reconstruct the sorted array
+//         int j = 0;
+//         for (int i = 0; i <= max; i++) {
+//             while (bucket[i] > 0) {
+//                 a[j++] = i;
+//                 bucket[i]--;
+//             }
+//         }
+//     }
+
+
+//     public static void main(String[] args) {
+//         int a[] = {31,2,30,1,100,0};
+//         int n = a.length;
+
+//         bucketSort(a, n);
+
+//         System.out.println("Sorted array:");
+//         for (int x : a) {
+//             System.out.print(x + " ");
+//         }
+//     }
+// }
+/*---------------------------------------------------------------- */
+
+/* Radix sort:- This is a non-comparative integer sorting algorithm that sorts
+ * numbers by processing individual digits. The algorithm works by sorting the
+* input numbers based on each digit, starting from the least significant digit
+* (LSD) to the most significant digit (MSD). It uses a stable sorting
+* algorithm (like counting sort) to sort the digits at each position.
+ */
+// // Radix Sort
+// public class Sorting {
+
+//     static int RadixSort(int a[], int n) {
+//         int max = a[0];
+//         for (int i = 1; i < n; i++) {
+//             if (a[i] > max) {
+//                 max = a[i];
+//             }
+//         }
+//         return max;
+//     }
+
+//     static void countingSort(int a[], int n, int exp) {
+//         int output[] = new int[n];
+//         int count[] = new int[10];
+
+//         // Initialize count array with 0
+//         for (int i = 0; i < 10; i++) {
+//             count[i] = 0;
+//         }
+
+//         // Store count of occurrences in count[]
+//         for (int i = 0; i < n; i++) {
+//             count[(a[i] / exp) % 10]++;
+//         }
+
+//         // Change count[i] so that it now contains actual position of this digit in output[]
+//         for (int i = 1; i < 10; i++) {
+//             count[i] += count[i - 1];
+//         }
+
+//         // Build the output array
+//         for (int i = n - 1; i >= 0; i--) {
+//             output[count[(a[i] / exp) % 10] - 1] = a[i];
+//             count[(a[i] / exp) % 10]--;
+//         }
+
+//         // Copy the output array to a[], so that a[] now contains sorted numbers according to current digit
+//         for (int i = 0; i < n; i++) {
+//             a[i] = output[i];
+//         }
+//     }
+//     static void radixSort(int a[], int n) {
+//         int max = RadixSort(a, n);
+
+//         // Do counting sort for every digit
+//         for (int exp = 1; max / exp > 0; exp *= 10) {
+//             countingSort(a, n, exp);
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         int a[] = { 53,89,150,36,633,233 };
+//         int n = a.length;
+
+//         radixSort(a, n);
+
+//         System.out.println("Sorted array:");
+//         for (int x : a) {
+//             System.out.print(x + " ");
+//         }
+//     }
+// }
