@@ -162,24 +162,26 @@
 // }
 /*---------------------------------------------------------------- */
 
-// 3. Implementing Stack using Java Collection Framework.
+// // 3. Implementing Stack using Java Collection Framework.
 
 // import java.util.Stack;
 
 // public class StackClass {
-// public static void main(String args[]) {
-// Stack<Integer> s = new Stack<>();
-// s.push(1);
-// s.push(2);
-// s.push(3);
-// s.push(4);
+//     public static void main(String args[]) {
+//         Stack<Integer> s = new Stack<>();
+//         s.push(1);
+//         s.push(2);
+//         s.push(3);
+//         s.push(4);
 
-// while (!s.isEmpty()) {
-// System.out.println(s.peek());
-// s.pop();
+//     while (!s.isEmpty()) {
+//     System.out.println(s.peek());
+//     //System.out.println(s.pop()); This also works fine without using peek()
+//     s.pop();
+//     }
+//     }
 // }
-// }
-// }
+
 /*---------------------------------------------------------------- */
 
 // Qs. Push at the Bottom of Stack :-
@@ -227,16 +229,18 @@
 // }
 /*---------------------------------------------------------------- */
 
-// Qs. Reverse a Stack.
+// // Qs. Reverse a Stack.
 
 // import java.util.Stack;
 
 // public class StackClass {
-// public static void pushAtBottom(int data, Stack<Integer> s) {
-// if (s.isEmpty()) {
-// s.push(data);
-// return;
-// }
+//     public static void pushAtBottom(int data, Stack<Integer> s) {
+
+//     if (s.isEmpty()) {
+//     s.push(data);
+//     return;
+//     }
+
 
 // int top = s.pop();
 // pushAtBottom(data, s);
@@ -253,19 +257,20 @@
 // pushAtBottom(top, s);
 // }
 
-// public static void main(String args[]) {
-// Stack<Integer> s = new Stack<>();
-// s.push(1);
-// s.push(2);
-// s.push(3);
+//     public static void main(String args[]) {
+//         Stack<Integer> s = new Stack<>();
+//         s.push(1);
+//         s.push(2);
+//         s.push(3);
 
-// reverse(s);
+//         reverse(s);
 
-// while (!s.isEmpty()) {
-// System.out.println(s.peek());
-// s.pop();
+//     while (!s.isEmpty()) {
+//     System.out.println(s.peek());
+//     s.pop();
+//     }
+//     }
 // }
 
-// }
-// }
+
 /*---------------------------------------------------------------- */
