@@ -331,26 +331,26 @@
 
 // 5. Implementing Queue using Java Collection Framework (using ArrayDeque).
 
-// import java.util.*;
+import java.util.*;
 
-// public class QueueClass {
-// public static void main(String[] args) {
-// Queue<Integer> q = new ArrayDeque<>();
-// // This Queue can be of any data-type e.g. Queue<Boolean> q = new
-// // ArrayDeque<>();
+public class QueueClass {
+    public static void main(String[] args) {
+        Queue<Integer> q = new ArrayDeque<>();
+        // This Queue can be of any data-type e.g. Queue<Boolean> q = new
+        // ArrayDeque<>();
 
-// q.add(1);
-// q.add(2);
-// q.add(3);
-// q.add(4);
-// q.add(5);
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
 
-// while (!q.isEmpty()) {
-// System.out.println(q.peek());
-// q.remove();
-// }
-// }
-// }
+        while (!q.isEmpty()) {
+        System.out.println(q.peek());
+        q.remove();
+        }
+    }
+}
 /*---------------------------------------------------------------- */
 
 // VVI Qs. Implement Queue using two Stacks.
@@ -370,67 +370,67 @@
 
 //  Solution :-
 
-import java.util.*;
+// import java.util.*;
 
-public class QueueClass {
-    static class Queue {
-        Stack<Integer> s1 = new Stack<>();
-        Stack<Integer> s2 = new Stack<>();
+// public class QueueClass {
+//     static class Queue {
+//         Stack<Integer> s1 = new Stack<>();
+//         Stack<Integer> s2 = new Stack<>();
 
-        public boolean isEmpty() {
-            return s1.isEmpty();
-        }
+//         public boolean isEmpty() {
+//             return s1.isEmpty();
+//         }
 
-        // Enqueue :- This is a three step process.
-        public void add(int data) {
-            // 1. Pushing all the data of s1 to s2 and deleting it from s1 to make s1 empty.
-            while (!s1.isEmpty()) {
-                s2.push(s1.pop());
-            }
+//         // Enqueue :- This is a three step process.
+//         public void add(int data) {
+//             // 1. Pushing all the data of s1 to s2 and deleting it from s1 to make s1 empty.
+//             while (!s1.isEmpty()) {
+//                 s2.push(s1.pop());
+//             }
 
-            // 2. Pushing new data to 1st Stack when it is empty.
-            s1.push(data);
+//             // 2. Pushing new data to 1st Stack when it is empty.
+//             s1.push(data);
 
-            // 3. Putting back all the data from s2 to s1 after putting the new element to
-            // s1 until s2 is empty.
-            while (!s2.isEmpty()) {
-                s1.push(s2.pop());
-            }
-        }
+//             // 3. Putting back all the data from s2 to s1 after putting the new element to
+//             // s1 until s2 is empty.
+//             while (!s2.isEmpty()) {
+//                 s1.push(s2.pop());
+//             }
+//         }
 
-        // Dequeue :-
-        public int remove() {
-            if (isEmpty()) {
-                System.out.println("Queue is empty");
-                return -1;
-            }
+//         // Dequeue :-
+//         public int remove() {
+//             if (isEmpty()) {
+//                 System.out.println("Queue is empty");
+//                 return -1;
+//             }
 
-            return s1.pop();
-        }
+//             return s1.pop();
+//         }
 
-        // Peek :-
-        public int peek() {
-            if (isEmpty()) {
-                System.out.println("Queue is empty");
-                return -1;
-            }
+//         // Peek :-
+//         public int peek() {
+//             if (isEmpty()) {
+//                 System.out.println("Queue is empty");
+//                 return -1;
+//             }
 
-            return s1.peek();
-        }
-    }
+//             return s1.peek();
+//         }
+//     }
 
-    public static void main(String[] args) {
-        Queue q = new Queue();
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        q.add(4);
-        q.add(5);
+//     public static void main(String[] args) {
+//         Queue q = new Queue();
+//         q.add(1);
+//         q.add(2);
+//         q.add(3);
+//         q.add(4);
+//         q.add(5);
 
-        while (!q.isEmpty()) {
-            System.out.println(q.peek());
-            q.remove();
-        }
-    }
-}
+//         while (!q.isEmpty()) {
+//             System.out.println(q.peek());
+//             q.remove();
+//         }
+//     }
+// }
 /*---------------------------------------------------------------- */
