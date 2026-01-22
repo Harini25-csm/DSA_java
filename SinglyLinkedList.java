@@ -415,8 +415,7 @@
 
 // public class SinglyLinkedList {
 // public static void main(String[] args) {
-// // This is how we use the LinkedList Interface in our project. Now by doing
-// this
+// // This is how we use the LinkedList Interface in our project. Now by doing this
 // // we don't have to write any methods manually, we just need to use it.
 // LinkedList<String> list = new LinkedList<>();
 
@@ -430,8 +429,7 @@
 // list.addLast("list");
 // System.out.println(list);
 
-// // If we write only 'add' then also by default it will add the elements to
-// the
+// // If we write only 'add' then also by default it will add the elements to the
 // // last.
 // list.add("LinkedList");
 // list.add("Singly");
@@ -605,6 +603,8 @@
 // list.printList();
 
 // list.reverseIterate();
+
+
 // list.printList();
 // }
 // }
@@ -735,6 +735,7 @@
 // list.head = list.reverseRecursive(list.head);
 // list.printList();
 // }
+
 // }
 /*---------------------------------------------------------------- */
 
