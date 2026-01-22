@@ -37,8 +37,8 @@
 // (i.e. Object is yet to be made). This object is made in our main() method.
 
 // class Pen {//className
-// String color;//Propertys/fields
-// String type;//Propertys/fields
+// String color;//Propertys or fields
+// String type;//Propertys or fields
 
 // public void write() {//method
 // System.out.println("Writing something.");
@@ -62,9 +62,9 @@
 // respectively.
 /*---------------------------------------------------------------- */
 
-// Now, if we want to print the properties of this Pen class then we have have
-// to use 'this' keyword. Let create another method inside this Pen class and
-// see how it works.
+// // Now, if we want to print the properties of this Pen class then we have have
+// // to use 'this' keyword. Let create another method inside this Pen class and
+// // see how it works.
 
 // class Pen {
 // String color;
