@@ -331,26 +331,26 @@
 
 // 5. Implementing Queue using Java Collection Framework (using ArrayDeque).
 
-import java.util.*;
+// import java.util.*;
 
-public class QueueClass {
-    public static void main(String[] args) {
-        Queue<Integer> q = new ArrayDeque<>();
-        // This Queue can be of any data-type e.g. Queue<Boolean> q = new
-        // ArrayDeque<>();
+// public class QueueClass {
+//     public static void main(String[] args) {
+//         Queue<Integer> q = new ArrayDeque<>();
+//         // This Queue can be of any data-type e.g. Queue<Boolean> q = new
+//         // ArrayDeque<>();
 
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        q.add(4);
-        q.add(5);
+//         q.add(1);
+//         q.add(2);
+//         q.add(3);
+//         q.add(4);
+//         q.add(5);
 
-        while (!q.isEmpty()) {
-        System.out.println(q.peek());
-        q.remove();
-        }
-    }
-}
+//         while (!q.isEmpty()) {
+//         System.out.println(q.peek());
+//         q.remove();
+//         }
+//     }
+// }
 /*---------------------------------------------------------------- */
 
 // VVI Qs. Implement Queue using two Stacks.
