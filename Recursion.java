@@ -32,7 +32,7 @@
 // }
 /****************************************************/
 
-//Fibonacci
+// //Fibonacci
 // import java.util.Scanner;
 // public class Recursion{
 //     int fibonacci(int n){
@@ -89,7 +89,7 @@
 // }
 /***********************************************************/
 
-//palindrome without using recursion
+// //palindrome without using recursion
 // import java.util.Scanner;
 // public class Recursion {
 //     boolean isPalindrome(String s){
@@ -146,3 +146,95 @@
 //         }
 //     }
 // }
+/**************************************************************/
+
+// // Permutations using recursion
+// public class Recursion{
+//     public static void permute(char[] chars,int start){
+//         if(start==chars.length-1){
+//             System.out.println(String.valueOf(chars));
+//             return;
+//         }
+//         for(int i=start;i<chars.length;i++){
+//             swap(chars,start,i);// swap is for first iteration start with 'A'
+//             permute(chars,start+1);// intially 'A' is constant, to reach next ele do 'start+1'
+//             swap(chars,start,i);// this swap is second iterstion starts with 'B'
+//         }
+//     }
+//     public static void swap(char[] arr,int i, int j){
+//         char temp=arr[i];
+//         arr[i]=arr[j];
+//         arr[j]=temp;
+//     }
+//     public static void main(String[] args){
+//         String s="ABC";
+//         permute(s.toCharArray(),0);
+//     }
+// }
+/************************************************/
+
+// // Merge k list using devide and conquer. mid=(n/2)+1(even), mid=n/2(odd)
+// class ListNode{
+//     int val;
+//     ListNode next;
+//     ListNode(){
+//         this.val=val;
+//         this.next=null;
+//     }
+// }
+// public class   Recursion{
+//     public ListNode merge(ListNode[] lists){
+//         if(lists==null || lists.length==0){
+//             return null;
+//         }
+//         return mergeRange(lists,0,lists.length-1);
+//     }
+//     public ListNode mergeRange(ListNode[] lists,int l,int r){
+//         if(l==r){
+//             return lists[l];
+//         }
+//         int mid=l+(r-l)/2;
+//         ListNode Left=mergeRange(lists,l,mid);
+//         ListNode Right=mergeRange(lists,mid+1,r);
+//         return mergeTwoLists(Left,Right);
+//     }
+//     public ListNode mergeTwoLists(ListNode l1, ListNode l2){
+//         if(l1==null) return l2;
+//         if(l2==null) return l1;
+//         if(l1.val<l2.val){
+//             l1.next=mergeTwoLists(l1.next,l2);
+//             return l1;
+//         }
+//         else{
+//             l2.next=mergeTwoLists(l1,l2.next);
+//             return l2;
+//         }
+
+//     } 
+// }
+/***********************************************************/
+// // x power(n)
+// class Solution {
+//     public double myPow(double x, int n) {
+//         if (n == 0) return 1;
+//         if(n<0){
+//             x=1/x;
+//             return power(x, -(long)n);
+//         }
+//         return power(x,n);
+        
+//     }
+
+//     private double power(double x, long n) {
+//         if (n == 0) return 1;
+
+//         double half = power(x, n / 2);
+
+//         if (n % 2 == 0) {
+//             return half * half;
+//         } else {
+//             return half * half * x;
+//         }
+//     }
+// }
+/******************************************************/
