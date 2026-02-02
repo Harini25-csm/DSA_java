@@ -169,7 +169,7 @@
 // }
 /*******************************************************************/
 
-// // //reversing queue using stack
+// //reversing queue using stack
 // import java.util.*;
 
 // public class Queue1 {
@@ -191,8 +191,7 @@
 
 //     public static void main(String[] args) {
 
-//         Queue<Integer> q = new Linke
-//         dList<>();
+//         Queue<Integer> q = new LinkedList<>();
 
 //         q.add(1);
 //         q.add(2);
@@ -206,50 +205,92 @@
 //         System.out.println("Reversed Queue: " + q);
 //     }
 // }
+
 /**************************************************************/
 
-//Circular Queue using stack
+// //Circular Queue using stack
+// import java.util.*;
 
-// public class Queue1 {
+// public class Queue1 {//CircularQueueUsingStack
 
 //     static class Queue {
-//         int arr[];
-//         int size, front, rear;
+//         Stack<Integer> s1 = new Stack<>();
+//         Stack<Integer> s2 = new Stack<>();
+//         int capacity;
 
-//         Queue(int size) {
-//             this.size = size;
-//             arr = new int[size];
-//             front = -1;
-//             rear = -1;
+//         Queue(int capacity) {
+//             this.capacity = capacity;
 //         }
 
-//         // Add element
+//         boolean isFull() {
+//             return s1.size() + s2.size() == capacity;
+//         }
+
+//         boolean isEmpty() {
+//             return s1.isEmpty() && s2.isEmpty();
+//         }
+
+//         // Enqueue
 //         boolean enqueue(int x) {
-//             if ((rear+1)%size==front) return false;//0==0 so, it is full we can't insert , return false
-//             if(front==-1) front=0;//front -1 change to 0 
-//             rear=(rear+1)%size;
-//             arr[rear]=x;
+//             if (isFull()) {
+//                 System.out.println("Queue is Full");
+//                 return false;
+//             }
+//             s1.push(x);
 //             return true;
 //         }
-//         int dequeue(){
-//             //empty
-//             if(front==-1) return -1;
-//             int val=arr[front];
-//             if(front==rear) front=rear=-1;
-//             else front=(front+1)%size;
-//             return val;
+
+//         // Dequeue
+//         int dequeue() {
+//             if (isEmpty()) {
+//                 System.out.println("Queue is Empty");
+//                 return -1;
+//             }
+
+//             if (s2.isEmpty()) {
+//                 while (!s1.isEmpty()) {
+//                     s2.push(s1.pop());
+//                 }
+//             }
+
+//             return s2.pop();
 //         }
+
+//         void display() {
+//             if (isEmpty()) {
+//                 System.out.println("Queue Empty");
+//                 return;
+//             }
+
+//             System.out.print("Queue elements: ");
+            
+//             // Print s2 in reverse order
+//             for (int i = s2.size() - 1; i >= 0; i--) {
+//                 System.out.print(s2.get(i) + " ");
+//             }
+
+//             // Print s1 normally
+//             for (int i = 0; i < s1.size(); i++) {
+//                 System.out.print(s1.get(i) + " ");
+//             }
+//             System.out.println();
+//         }
+//     }
 
 //     public static void main(String[] args) {
 //         Queue q = new Queue(5);
 
-//         q.add(10);
-//         q.add(20);
-//         q.add(30);
-//         q.add(40);
-//         q.add(50);
-        
+//         q.enqueue(10);
+//         q.enqueue(20);
+//         q.enqueue(30);
+//         q.display();
+
+//         q.dequeue();
+//         q.display();
+
+//         q.enqueue(40);
+//         q.enqueue(50);
+//         q.enqueue(60);
+//         q.display();
 //     }
 // }
-// }
-
