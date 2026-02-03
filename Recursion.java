@@ -149,6 +149,7 @@
 /**************************************************************/
 
 // // Permutations using recursion
+// import java.util.Scanner;
 // public class Recursion{
 //     public static void permute(char[] chars,int start){
 //         if(start==chars.length-1){
@@ -166,9 +167,20 @@
 //         arr[i]=arr[j];
 //         arr[j]=temp;
 //     }
-//     public static void main(String[] args){
-//         String s="ABC";
-//         permute(s.toCharArray(),0);
+//      public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         System.out.print("Enter a string: ");
+//         String input = sc.nextLine();
+
+//         if (input.length() == 0) {
+//             System.out.println("Empty string has no permutations.");
+//         } else {
+//             System.out.println("Permutations are:");
+//             permute(input.toCharArray(), 0);
+//         }
+
+//         sc.close();
 //     }
 // }
 /************************************************/
@@ -214,27 +226,45 @@
 // }
 /***********************************************************/
 // // x power(n)
-// class Solution {
+// import java.util.Scanner;
+// class Recursion {
 //     public double myPow(double x, int n) {
 //         if (n == 0) return 1;
-//         if(n<0){
-//             x=1/x;
-//             return power(x, -(long)n);
+
+//         if (n < 0) {
+//             x = 1 / x;
+//             return power(x, -(long) n);  // Convert to long to avoid overflow
 //         }
-//         return power(x,n);
-        
+//         return power(x, n);
 //     }
 
 //     private double power(double x, long n) {
 //         if (n == 0) return 1;
 
 //         double half = power(x, n / 2);
-
 //         if (n % 2 == 0) {
 //             return half * half;
 //         } else {
 //             return half * half * x;
 //         }
 //     }
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         Recursion obj = new Recursion();
+
+//         System.out.print("Enter base (x): ");
+//         double x = sc.nextDouble();
+
+//         System.out.print("Enter exponent (n): ");
+//         int n = sc.nextInt();
+
+//         double result = obj.myPow(x, n);
+//         System.out.println("Result: " + result);
+
+//         sc.close();
+//     }
 // }
+
 /******************************************************/
+
+
