@@ -382,8 +382,8 @@
 //         System.out.print("Enter expression: ");
 //         String expression = sc.nextLine();
 
-//         diffWaysToCompute obj = new diffWaysToCompute();
-//         List<Integer> results = obj.finddiffWaysToCompute(expression);
+//         Recursion obj = new Recursion();
+//         List<Integer> results = obj.diffWaysToCompute(expression);
 
 //         System.out.println("Possible Results:");
 //         for (int num : results) {
@@ -391,4 +391,4 @@
 //         }
 //     }
 // }
-/***********************************************************************/
+
