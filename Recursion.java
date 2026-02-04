@@ -267,4 +267,128 @@
 
 /******************************************************/
 
+// //ratInMaze
+// //Input: maze[][] = [[1, 0, 0, 0], [1, 1, 0, 1], [1, 1, 0, 0], [0, 1, 1, 1]]
+// //Output: ["DDRDRR", "DRDDRR"]
+// import java.util.*;
+// public class Recursion {
+//     public static ArrayList<String> ratInMaze(int[][] m, int n) {//ArrayList<String> for path
+//         ArrayList<String> ans = new ArrayList<>();
+//         if (m[0][0] == 0) return ans;
+//         boolean[][] visited = new boolean[n][n];
+//         solve(0, 0, m, n, visited, "", ans);
+//         Collections.sort(ans); // for lexicographical order
+//         return ans;
+//     }
+//     static void solve(int i, int j, int[][] m, int n,
+//                       boolean[][] visited, String path, ArrayList<String> ans) {
+//         if (i == n - 1 && j == n - 1) {
+//             ans.add(path);
+//             return;
+//         }
+//         visited[i][j] = true;
+//         if (i + 1 < n && m[i + 1][j] == 1 && !visited[i + 1][j])
+//             solve(i + 1, j, m, n, visited, path + "D", ans);
+//         if (j - 1 >= 0 && m[i][j - 1] == 1 && !visited[i][j - 1])
+//             solve(i, j - 1, m, n, visited, path + "L", ans);
+//         if (j + 1 < n && m[i][j + 1] == 1 && !visited[i][j + 1])
+//             solve(i, j + 1, m, n, visited, path + "R", ans);
+//         if (i - 1 >= 0 && m[i - 1][j] == 1 && !visited[i - 1][j])
+//             solve(i - 1, j, m, n, visited, path + "U", ans);
+//         visited[i][j] = false;
+//     }
+//     //  MAIN METHOD
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
 
+//         System.out.print("Enter n: ");
+//         int n = sc.nextInt();
+
+//         int[][] maze = new int[n][n];
+//         System.out.println("Enter maze matrix (0/1):");
+
+//         for (int i = 0; i < n; i++) {
+//             for (int j = 0; j < n; j++) {
+//                 maze[i][j] = sc.nextInt();
+//             }
+//         }
+
+//         ArrayList<String> paths = ratInMaze(maze, n);
+
+//         if (paths.size() == 0) {
+//             System.out.println("No Path Found");
+//         } else {
+//             System.out.println("Possible Paths:");
+//             for (String s : paths) {
+//                 System.out.println(s);
+//             }
+//         }
+//     }
+// }
+
+//*****************************************************/
+
+// # function solve(expression):
+// # result=[]
+// # for each index i:
+// # if expression[i] is an operator:
+// # left=expression[0....i-1]//break from operator
+// # right=expression[i+1....n]
+// # for l in left:
+// #     for r in right:
+// #         reult.add(l or r)
+
+// // Different Ways to Add Parentheses
+// import java.util.*;
+
+// class Recursion {
+
+//     public List<Integer> diffWaysToCompute(String expression) {
+//         return solve(expression);
+//     }
+
+//     private List<Integer> solve(String exp) {
+//         List<Integer> result = new ArrayList<>();
+
+//         for (int i = 0; i < exp.length(); i++) {
+//             char ch = exp.charAt(i);
+
+//             if (ch == '+' || ch == '-' || ch == '*') {
+
+//                 List<Integer> left = solve(exp.substring(0, i));
+//                 List<Integer> right = solve(exp.substring(i + 1));
+
+//                 for (int l : left) {
+//                     for (int r : right) {
+//                         if (ch == '+') result.add(l + r);
+//                         else if (ch == '-') result.add(l - r);
+//                         else result.add(l * r);
+//                     }
+//                 }
+//             }
+//         }
+
+//         if (result.size() == 0) {
+//             result.add(Integer.parseInt(exp));
+//         }
+
+//         return result;
+//     }
+
+//     //  MAIN METHOD
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         System.out.print("Enter expression: ");
+//         String expression = sc.nextLine();
+
+//         diffWaysToCompute obj = new diffWaysToCompute();
+//         List<Integer> results = obj.finddiffWaysToCompute(expression);
+
+//         System.out.println("Possible Results:");
+//         for (int num : results) {
+//             System.out.print(num + " ");
+//         }
+//     }
+// }
+/***********************************************************************/
