@@ -391,4 +391,68 @@
 //         }
 //     }
 // }
+/******************************************************/
+
+// // Tower of Hanoi
+// import java.util.Scanner;
+
+// public class Recursion {
+
+//     public static void towerOfHanoi(int n, char source, char helper, char destination) {
+//         if (n == 1) {
+//             System.out.println("Move disk 1 from rod " + source + " to rod " + destination);
+//             return;
+//         }
+
+//         towerOfHanoi(n - 1, source, destination, helper);
+//         System.out.println("Move disk " + n + " from rod " + source + " to rod " + destination);
+//         towerOfHanoi(n - 1, helper, source, destination);
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         System.out.print("Enter number of disks: ");
+//         int n = sc.nextInt();
+
+//         System.out.println("\nSteps to solve Tower of Hanoi:\n");
+//         towerOfHanoi(n, 'A', 'B', 'C');
+
+//         sc.close();
+//     }
+// }
+/****************************************************/
+// // Swap Nodes in Pairs
+// class ListNode {
+//     int val;
+//     ListNode next;
+
+//     ListNode() {}
+//     ListNode(int val) { this.val = val; }
+//     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+// }
+
+// class Solution {
+//     public ListNode swapPairs(ListNode head) {
+//         // Base case: 0 or 1 node → no swap needed
+//         if (head == null || head.next == null) {
+//             return head;
+//         }
+
+//         // Identify first two nodes
+//         ListNode first = head;
+//         ListNode second = head.next;
+
+//         // Recursively swap remaining list
+//         first.next = swapPairs(second.next);
+
+//         // Swap current pair
+//         second.next = first;
+
+//         // Return new head
+//         return second;
+//     }
+// }
+/**********************************************************/
+
 
