@@ -2,12 +2,12 @@
 // class LinkedList {
 
 //     // Node class
-//     class Node {
+//     class Node {//inner class
 
 //         int data;
 //         Node next;
 
-//         Node(int data) {
+//         Node(int data) {//constructor
 //             this.data = data;
 //             this.next = null;
 //         }
@@ -16,7 +16,7 @@
 //     Node head; // head of list
 
 //     // Insertion at end
-//     void insert(int data) {
+//     void insert(int data) {//method to insert data at end of list
 //         Node newNode = new Node(data);
 
 //         if (head == null) {   // if list empty
@@ -34,7 +34,7 @@
 //     }
 
 //     // Display list
-//     void display() {
+//     void display() {//method to display the list
 //         Node temp = head;
 //         while (temp != null) {
 //             System.out.print(temp.data + " -> ");
@@ -125,77 +125,6 @@
 
 // //find if the loop is there or not in linked list using slow, fast approach
 // //Also called Floyd’s Cycle Detection Algorithm or Tortoise & Hare
-// class Node {
-//     int data;
-//     Node next;
-
-//     Node(int data) {
-//         this.data = data;
-//         this.next = null;
-//     }
-// }
-
-// public class LinkedList {
-
-//     // Insert nodes dynamically
-//     public static Node createList(int[] arr) {
-//         Node head = new Node(arr[0]);
-//         Node temp = head;
-
-//         for (int i = 1; i < arr.length; i++) {
-//             temp.next = new Node(arr[i]);
-//             temp = temp.next;
-//         }
-//         return head;
-//     }
-
-//     // Create loop: last node → position k
-//     public static void createLoop(Node head, int k) {
-//         Node temp = head;
-//         Node loopNode = null;
-//         int count = 1;
-
-//         while (temp.next != null) {
-//             if (count == k) {
-//                 loopNode = temp;
-//             }
-//             temp = temp.next;
-//             count++;
-//         }
-//         temp.next = loopNode; // last node connects to k-th node
-//     }
-
-//     // Detect loop
-//     public static boolean hasLoop(Node head) {
-//         Node slow = head;
-//         Node fast = head;
-
-//         while (fast != null && fast.next != null) {
-//             slow = slow.next;
-//             fast = fast.next.next;
-
-//             if (slow == fast) return true;
-//         }
-//         return false;
-//     }
-
-//     public static void main(String[] args) {
-
-//         int[] values = {1,2}; // Can be 20, 50, 100
-
-//         Node head = createList(values);
-
-//         createLoop(head, 3);  // loop starts at node 3
-
-//         if (hasLoop(head))
-//             System.out.println("Loop detected in the linked list");
-//         else
-//             System.out.println("No loop in the linked list");
-//     }
-// } 
-
-
-// // or use this code
 // class Main{
 //     class Node{
 //         int data;
@@ -220,7 +149,7 @@
 //         temp.next=newNode;
 //     }
     
-//      public static boolean hasLoop(Node head) {
+//      public static boolean hasLoop(Node head) {//method to detect loop using slow and fast pointers
 //         Node slow = head;
 //         Node fast = head;
 
@@ -234,7 +163,7 @@
 //         }
 //         return false; // no loop
 //     }
-//     void createLoop() {
+//     void createLoop() {//method to create loop in the linked list
 //     Node temp = head;
 //     Node third = null;
 //     int count = 1;
@@ -247,7 +176,7 @@
 //         count++;
 //     }
 
-//     temp.next = third; // last node connects to 3rd node
+//     temp.next = third; //create loop, backtrack to 3rd node
 // }
 
 //     public static void main(String []args){
@@ -315,7 +244,7 @@
 //     public static void main(String[] args) {
 //         int[] arr = {12, 35, 1, 10, 34, 1};
 
-//         int largest = Integer.MIN_VALUE;
+//         int largest = Integer.MIN_VALUE;//Assume min_value is - infinite 
 //         int secondLargest = Integer.MIN_VALUE;
 //         int thirdLargest = Integer.MIN_VALUE;
 
@@ -366,7 +295,7 @@
 //             if (fast == null) {
 //                 return null; // n greater than length
 //             }
-//             fast = fast.next;
+//             fast = fast.next;//move fast pointer n steps ahead
 //         }
 
 //         // Move both pointers
@@ -532,59 +461,6 @@
 
 /**************************************************************************/
 // //Loop detection (slow–fast) (asked in Google, Amazon)
-// class Node {
-//     int data;
-//     Node next;
-
-//     Node(int data) {
-//         this.data = data;
-//         this.next = null;
-//     }
-// }
-
-// public class LinkedList {
-
-//     // Function to find intersection node
-//     public static Node findIntersection(Node head1, Node head2) {
-//         Node p1 = head1;
-//         Node p2 = head2;
-
-//         while (p1 != p2) {
-//             p1 = (p1 == null) ? head2 : p1.next;
-//             p2 = (p2 == null) ? head1 : p2.next;
-//         }
-//         return p1; // intersection node or null
-//     }
-
-//     public static void main(String[] args) {
-
-//         // Common part
-//         Node n6 = new Node(6);
-//         Node n7 = new Node(7);
-//         Node n8 = new Node(8);
-//         n6.next = n7;
-//         n7.next = n8;
-
-//         // List 1: 1 → 2 → 3 → 6 → 7 → 8
-//         Node head1 = new Node(1);
-//         head1.next = new Node(2);
-//         head1.next.next = new Node(3);
-//         head1.next.next.next = n6;
-
-//         // List 2: 4 → 6 → 7 → 8
-//         Node head2 = new Node(4);
-//         head2.next = n6;
-
-//         Node intersection = findIntersection(head1, head2);
-
-//         if (intersection != null)
-//             System.out.println("Intersection Node: " + intersection.data);
-//         else
-//             System.out.println("No intersection");
-//     }
-// }
-
-/**************************************************************************/
 // //Intersection of Two Linked Lists
 // class Node {
 //     int data;
@@ -615,22 +491,26 @@
 
 //     public static void main(String[] args) {
 
-//         // Common part
-//         Node common1 = new Node(6);
+//         // Common part: 4 → 7 → 8 → 9 → 10
+//         Node common1 = new Node(4);
 //         Node common2 = new Node(7);
 //         Node common3 = new Node(8);
+//         Node common4 = new Node(9);
+//         Node common5 = new Node(10);
 //         common1.next = common2;
 //         common2.next = common3;
+//         common3.next = common4;
+//         common4.next = common5;
 
-//         // List 1: 1 → 2 → 3 → 6 → 7 → 8
+//         // List 1: 1 → 2 → 3 → 4 → 7 → 8 → 9 → 10
 //         Node head1 = new Node(1);
 //         head1.next = new Node(2);
 //         head1.next.next = new Node(3);
 //         head1.next.next.next = common1;
 
-//         // List 2: 4 → 5 → 6 → 7 → 8
-//         Node head2 = new Node(4);
-//         head2.next = new Node(5);
+//         // List 2: 12 → 11 → 4 → 7 → 8 → 9 → 10
+//         Node head2 = new Node(12);
+//         head2.next = new Node(11);
 //         head2.next.next = common1;
 
 //         Node result = getIntersection(head1, head2);
@@ -683,7 +563,7 @@
 //         return a;  // Intersection node or null
 //     }
 
-//     // 🔹 Main method
+//     // Main method
 //     public static void main(String[] args) {
 
 //         // Common intersection part
