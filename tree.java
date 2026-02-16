@@ -305,3 +305,159 @@
 //     }
 // }
 /***************************************************************************/
+// //mirror of a binary tree
+// import java.util.*;
+// class Node{
+//     int val;
+//     Node left,right;
+//     Node(int val){
+//         this.val=val;
+//         this.left=null;
+//         this.right=null;
+//     }
+//     public static void mirror(Node root) {
+//         if(root==null) return;
+//         Node temp=root.left;
+//         root.left=root.right;
+//         root.right=temp;
+//         mirror(root.left);
+//         mirror(root.right);
+//     }
+//     public static void inorder(Node root) {
+//         if(root==null) return;
+//         inorder(root.left);
+//         System.out.print(root.val+" ");
+//         inorder(root.right);
+//     }
+//     public static void main(String[] args) {
+//         Node root=new Node(1);
+//         root.left=new Node(2);
+//         root.right=new Node(3);
+        
+//         System.out.println("Inorder traversal of original tree:");
+//         inorder(root);
+//         mirror(root);
+//         System.out.println("\nInorder traversal of mirrored tree:");
+//         inorder(root);
+//     }
+// }
+/***************************************************************************/
+// // Kth Smallest Element in a BST
+// /**
+//  * Definition for a binary tree node.
+//  * public class TreeNode {
+//  *     int val;
+//  *     TreeNode left;
+//  *     TreeNode right;
+//  *     TreeNode() {}
+//  *     TreeNode(int val) { this.val = val; }
+//  *     TreeNode(int val, TreeNode left, TreeNode right) {
+//  *         this.val = val;
+//  *         this.left = left;
+//  *         this.right = right;
+//  *     }
+//  * }
+//  */
+// class Solution {
+//     int count=0;
+//     int result=0;
+//     public int kthSmallest(TreeNode root, int k) {
+//         inorder(root,k);
+//         return result;
+
+//     }
+//     void inorder(TreeNode root,int k) {
+//         if(root==null) return;
+//         inorder(root.left,k);
+//         count++;
+//         if(count==k){
+//             result=root.val;
+//         }
+//         inorder(root.right,k);
+//     }
+// }
+/***************************************************************************/
+// // Flatten Binary Tree to Linked List using tree traversal
+// import java.util.*;
+// class Node{
+//     int data;
+//     int left, right;
+//     Node next;
+//     Node(int data){
+//         this.data=data;
+//         this.right=right;
+//         this.left=left;
+//         this.next=null;
+//     }
+// }
+// public class Tree {
+//     Node head;
+//     void insert(int data){
+//         Node newNode=new Node(data);
+//         if(head==null){
+//             head=newNode;
+//             return;
+//         }
+//         Node temp=head;
+//         while(temp.next!=null){
+//             temp=temp.next;
+//         }
+//         temp.next=newNode;
+//     }
+//     void flatten(Node root){
+//         if(root==null) return;
+//         insert(root.data);
+//         flatten(root.left);
+//         flatten(root.right);
+//     }
+//     void printList(){
+//         Node temp=head;
+//         while(temp!=null){
+//             System.out.print(temp.data+" ");
+//             temp=temp.next;
+//         }
+//     }
+//     public static void main(String []args){
+//         Node root=new Node(1);
+//         root.left=new Node(2);
+//         root.right=new Node(3);
+//         root.left.left=new Node(4);
+//         root.left.right=new Node(5);
+//         Tree t=new Tree();
+//         t.flatten(root);
+//         System.out.println("Flattened linked list:");
+//         t.printList();
+//     }
+// }
+/***************************************************************************/
+
+// //print the leaf node of a tree
+// import java.util.*;
+// class Node{
+//     int val;
+//     Node left, right;
+//     Node(int val){
+//         this.val=val;
+//         this.left=null;
+//         this.right=null;
+//     }
+//     public static void printLeafNode(Node root){
+//         if(root==null) return;
+//         if(root.left==null && root.right==null){
+//             System.out.println(root.val);
+//         }
+//         printLeafNode(root.left);
+//         printLeafNode(root.right);
+//     }
+//     public static void main(String[] args){
+//         Node root=new Node(1);
+//         root.left=new Node(2);
+//         root.right=new Node(3);
+//         root.left.left=new Node(4);
+//         root.left.right=new Node(5);
+//         System.out.println("Leaf nodes of the tree:");
+//         printLeafNode(root);
+//     }
+// }
+/***************************************************************************/
+
