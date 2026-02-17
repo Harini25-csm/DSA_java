@@ -132,3 +132,47 @@
 //             System.out.println("No Cycle");
 //     }
 // }
+
+
+// import java.util.*;
+// public class graph{
+//     static HashMap<String,ArrayList<String>> graph = new HashMap<>();
+//     static HashSet<String> visited = new HashSet<>();
+//     public static void main(String[] args) {
+//         graph.put("A", new ArrayList<>());
+//         graph.put("B", new ArrayList<>());
+//         graph.put("C", new ArrayList<>());
+//         graph.put("D", new ArrayList<>());
+//         addEdge("A","B");
+//         addEdge("B","C");
+//         addEdge("C","A");
+
+//         boolean hasCycle = false;
+//         for(String node: graph.keySet()){
+//             if(!visited.contains(node)){
+//                 if(dfs(node,null)){
+//                     hasCycle = true;
+//                     break;
+//                 }
+//             }
+//         }
+//         System.out.println("cycle present: " + hasCycle);
+//     }
+//     public static  void addEdge(String u, String v){
+//         graph.get(u).add(v);
+//         graph.get(v).add(u);
+//     }
+//     static boolean  dfs(String node,String parent){
+//         visited.add(node);
+//         for(String neighbour: graph.get(node)){
+//             if(!visited.contains(neighbour)){
+//                 return true;
+//             }
+//             else if(!neighbour.equals(parent)){
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+// }
+/*******************************************************************************/
