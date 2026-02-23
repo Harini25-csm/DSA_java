@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz App</title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Welcome -->
+    <div id="welcome">
+        <h1>Welcome to Quiz</h1>
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz" class="hide">
+        <div class="timer">Time Left: <span id="time">60</span> sec</div>
+        <h2 id="question"></h2>
+        <div id="options"></div>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="hide">
+        <h2>Your Score: <span id="score"></span>/10</h2>
+        <div id="reviewAnswers" class="review"></div>
+        <button onclick="location.reload()">Restart</button>
+    </div>
+
+</div>
+
+<script>
+
+const questions = [
+    { question: "What is HTML?", options: ["Programming Language", "Markup Language", "Database", "Operating System"], answer: 1 },
+    { question: "CSS stands for?", options: ["Color Style Sheet", "Cascading Style Sheets", "Creative Style System", "Computer Style Sheet"], answer: 1 },
+    { question: "Which is used for web interactivity?", options: ["HTML", "CSS", "JavaScript", "Python"], answer: 2 },
+    { question: "Which company developed JavaScript?", options: ["Microsoft", "Netscape", "Google", "IBM"], answer: 1 },
+    { question: "Which tag is used for headings?", options: ["<p>", "<h1>", "<div>", "<span>"], answer: 1 },
+    { question: "Which symbol is used for comments in JS?", options: ["//", "#", "<!-- -->", "**"], answer: 0 },
+    { question: "Which is a JS framework?", options: ["React", "Laravel", "Django", "Flask"], answer: 0 },
+    { question: "Which method prints in console?", options: ["print()", "echo()", "console.log()", "display()"], answer: 2 },
+    { question: "Which is backend language?", options: ["HTML", "CSS", "Node.js", "Bootstrap"], answer: 2 },
+    { question: "Which keyword declares variable?", options: ["var", "int", "string", "define"], answer: 0 }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let timeLeft = 60;
+let timer;
+let userAnswers = [];
+
+function startQuiz() {
+    document.getElementById("welcome").classList.add("hide");
+    document.getElementById("quiz").classList.remove("hide");
+    showQuestion();
+    startTimer();
+}
+
+function showQuestion() {
+    let q = questions[currentQuestion];
+    document.getElementById("question").innerText = q.question;
+    let optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+        let btn = document.createElement("button");
+        btn.innerText = option;
+        btn.classList.add("option-btn");
+        btn.onclick = () => selectAnswer(index);
+        optionsDiv.appendChild(btn);
+    });
+}
+
+function selectAnswer(index) {
+    userAnswers.push(index);
+    if (index === questions[currentQuestion].answer) {
+        score++;
+    }
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function startTimer() {
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("time").innerText = timeLeft;
+        if (timeLeft <= 0) {
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function endQuiz() {
+    clearInterval(timer);
+    document.getElementById("quiz").classList.add("hide");
+    document.getElementById("result").classList.remove("hide");
+    document.getElementById("score").innerText = score;
+
+    let reviewDiv = document.getElementById("reviewAnswers");
+    reviewDiv.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        let p = document.createElement("p");
+
+        if (userAnswers[index] === q.answer) {
+            p.innerHTML = `<strong>Q${index+1}:</strong> ${q.question} <br>
+                           <span class="correct">✔ Correct</span>`;
+        } else {
+            p.innerHTML = `<strong>Q${index+1}:</strong> ${q.question} <br>
+                           <span class="wrong">✘ Wrong</span><br>
+                           Correct Answer: <b>${q.options[q.answer]}</b>`;
+        }
+
+        reviewDiv.appendChild(p);
+    });
+}
+
+</script>
+
+</body>
+</html>
