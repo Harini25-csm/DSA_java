@@ -94,6 +94,32 @@
 //         head=prev;
 //         return head;
 //     }
+/*
+1 → 2 → 3 → null
+prev = null
+curr = 1
+next = null
+
+head → [1] → [2] → [3] → null  
+I1: Step done:
+1 → null
+
+prev → [1] → null
+curr → [2] → [3] → null
+I2: Step done:
+1 → null
+
+prev → [1] → null
+curr → [2] → [3] → null
+I3: Step done:
+3 → 2 → 1 → null
+null ← [1] ← [2] ← [3]
+                          ↑prev
+curr = null 
+        
+head = prev
+head → [3] → [2] → [1] → null
+*/
 
 //     void printList(){
 //         Node temp=head;
